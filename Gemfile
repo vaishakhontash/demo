@@ -40,6 +40,10 @@ group :test do
     gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
     gem 'capybara', '~> 2.17'
 end
+
+gem 'carrierwave', '~> 0.11.2'
+gem 'mini_magick', '~> 4.8'
+
 # group :doc do
 #   # bundle exec rake doc:rails generates the API under doc/api.
 #   gem 'sdoc', require: false

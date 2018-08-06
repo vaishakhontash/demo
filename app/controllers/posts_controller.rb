@@ -7,9 +7,12 @@ class PostsController < ApplicationController
     end
 
     def create
+        puts"=============================================================="
+        puts post_params
         @post =Post.new(post_params)
+        
         @post.user_id = current_user.id
-        if @post.save 
+        if @post.save() 
             redirect_to @post
         else
             render 'new'
@@ -48,7 +51,7 @@ class PostsController < ApplicationController
     private
 
     def post_params
-        params.require(:post).permit(:title, :text)
+        params.require(:post).permit(:title, :text, :image)
     end
     
 

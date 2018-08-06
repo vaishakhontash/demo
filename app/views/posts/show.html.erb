@@ -11,6 +11,11 @@
 <strong>User:</strong>
 <%= @post.user_id %>
 </p>
+
+<div >
+<strong> Image </strong>
+<%= image_tag @post.image.url , style: 'height:100px;width:auto;' %>
+</div>
 <h2>Comments</h2>
 <% @post.comments.each do |comment| %>
   <p>
