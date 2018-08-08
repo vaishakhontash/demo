@@ -1,23 +1,25 @@
-<table border="1">
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-    <th>User</th>
-    <th>Show</th>
-    <th>Edit</th>
-    <th>Delete</th>
-  </tr>
- 
-<% @posts.each do |post| %>
-  <tr>
-    <td><%= post.title %></td>
-    <td><%= post.text %></td>
-    <td><%= post.user_id %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-8">
+      <%= link_to 'New post', new_post_path %>
+      <div class="row" >
+      <ul>
+      <% @posts.each do |post| %>
 
-<%= link_to 'New post', new_post_path %>
+      <h3><%= post.user.name %> </h3>
+      <h4><%= post.title %> </h4>
+      <div class="module" >
+      <%= image_tag post.image.url , style: 'height:auto;width:80%;' %>
+      </div>
+      <p><%= post.text %></p>
+      <p> <br><%= link_to 'Show', post %> 
+      <%= link_to 'Edit', edit_post_path(post) %>
+      <%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      </tr>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

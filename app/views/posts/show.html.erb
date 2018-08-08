@@ -13,8 +13,8 @@
 </p>
 
 <div >
-<strong> Image </strong>
-<%= image_tag @post.image.url , style: 'height:100px;width:auto;' %>
+  <strong> Image </strong>
+  <%= image_tag @post.image.url, style: 'height:100px;width:auto;' %>
 </div>
 <h2>Comments</h2>
 <% @post.comments.each do |comment| %>

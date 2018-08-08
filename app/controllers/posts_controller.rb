@@ -7,7 +7,6 @@ class PostsController < ApplicationController
     end
 
     def create
-        puts"=============================================================="
         puts post_params
         @post =Post.new(post_params)
         
