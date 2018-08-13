@@ -1,11 +1,12 @@
 Demo::Application.routes.draw do
+  devise_for :admins
   get "users/index"
   get "user/rake"
   get "user/routes"
   get "welcome/index"
   get "posts/new"
   root "welcome#index"
-  
+  match '/users',   to: 'users#index',   via: 'get'
  
     resources :posts  do
       resources :comments
