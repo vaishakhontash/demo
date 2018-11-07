@@ -1,48 +1,39 @@
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
- 
-<p>
-  <strong>Text:</strong>
-  <%= @post.text %>
-</p>
-<p>
-<strong>User:</strong>
-<%= @post.user_id %>
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+   
+    <div class="col-md-8">
+    <h3><%= @post.user.name %></h3>
+    <%= @post.title %>
+    <div >
+      <%= image_tag @post.image.url, style: 'height:auto;width:80%;' %>
+    </div>
+    <%= @post.text %>
 
-<div >
-  <strong> Image </strong>
-  <%= image_tag @post.image.url, style: 'height:100px;width:auto;' %>
-</div>
-<h2>Comments</h2>
+<h5>Comments</h5>
 <% @post.comments.each do |comment| %>
+
   <p>
-    <strong>Commenter:</strong>
-    <%= comment.commenter %>
-  </p>
- 
-  <p>
-    <strong>Comment:</strong>
+    <strong> <%= comment.commenter %>:</strong>
     <%= comment.body %>
   </p>
 <% end %>
  
-<h2>Add a comment:</h2>
+<h4><strong>Add a comment:</strong></h4>
 <%= form_for([@post, @post.comments.build]) do |f| %>
   <p>
-    <%= f.label :commenter %><br />
-    <%= f.text_field :commenter %>
+  <%= f.hidden_field :commenter, :value =>  current_user.name %>
+</p>
+  <p>
+    <%= f.text_area :body ,style: 'heigt: auto; width:80%;'  %>
   </p>
   <p>
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit %>
+    <%= f.submit  %>
   </p>
 <% end %>
  
 <%= link_to 'Edit Post', edit_post_path(@post) %> |
 <%= link_to 'Back to Posts', posts_path %>
+</div>
+</div>

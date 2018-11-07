@@ -12,7 +12,7 @@ development:
   adapter: mysql
   database: demo_development
   username: root
-  password: root
+  password: Conversion@2017!!
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
@@ -22,12 +22,12 @@ test:
   adapter: mysql
   database: demo_test
   username: root
-  password: root
+  password: Conversion@2017!!
   host: localhost
 
 production:
   adapter: mysql
   database: demo_production
   username: root
-  password: root
+  password: Conversion@2017!!
   host: localhost
